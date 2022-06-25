@@ -34,11 +34,44 @@ class Dipendente(Utilzzatore):
             with open("Dati/Utilizzatori.pickle", "rb") as f:
                 utilizzatori= dict(pickle.load(f))
                 for utilizzatore in utilizzatori.values():
-                    if utilizzatore.codiceFiscale == codiceFiscale
+                    if utilizzatore.codiceFiscale == codiceFiscale:
                         return utilizzatore
                 return None
         else:
             return None
+
+    def ricercaUtilizzatoreNomeCognome(self,nome,cognome):
+        if os.path.isfile("Dati/Utilizzatori.pickle"):
+            with open("Dati/Utilizzatori.pickle", "rb") as f:
+                utilizzatori= dict(pickle.load(f))
+                for utilizzatore in utilizzatori.values():
+                    if utilizzatore.nome==nome and utilizzatore.cognome==cognome:
+                        return utilizzatore
+                    return None
+        else:
+            return None
+
+    def ricercaUtilizzatore(self,codice):
+        if os.path.isfile("Dati/Utilizzatori.pickle"):
+            with open("Dati/Utilizzatori.picke", "rb") as f:
+                utilizzatori= dict(pickle.load(f))
+                try:
+                    return utilizzatori[codice]
+                except:
+                    return None
+        else:
+            return None
+
+    def rimuoviDipendente(self):
+        if os.path.isfile("Dati/Utilizzatori.pickle"):
+            with open("Dati/Utilizzatori.pickle", "wb+") as f:
+                utilizzatori= pickle.load(f)
+                del utilizzatori[self.codice]
+                pickle.dump(utilizzatori, f , pickle.HIGHEST_PROTOCOL)
+        self.rimuoviUtilizzatore()
+        self.id = ""
+        self.password = ""
+        del self
 
 
 
