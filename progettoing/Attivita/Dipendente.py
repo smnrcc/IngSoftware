@@ -16,7 +16,7 @@ class Dipendente(Utilzzatore):
         self.id=id
         self.password=password
         utilizzatori={}
-        if os.path.isfile("Dati"):
+        if os.path.isfile("Dati/Utilizzatori.pickle"):
             with open("Dati/Utiizzatori.pickle", "rb") as f:
                 utilizzatori=pickle.load(f)
         utilizzatori[codice]=self
