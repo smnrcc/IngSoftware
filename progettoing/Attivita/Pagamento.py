@@ -4,7 +4,7 @@ import pickle
 from Attivita import Cliente
 class Pagamento (Cliente):
     def __init__(self):
-        self.numeroCarta= ""
+        self.numeroCarta= (16,"")
         self.scadenzaCarta= datetime.datetime(1,1970)
         self.cvv= ""
         self.intestatario=""
