@@ -73,6 +73,23 @@ class Dipendente(Utilzzatore):
         self.password = ""
         del self
 
+    def getInfoCredenziali(self):
+        info=self.getinfoUtilizzatore()
+        info["id"] = self.id
+        info["password"] = self.password
+        return info
+
+    def ricercaCredenziali(self, id, password):
+        if os.path.isfile("Dati/Utilizzatori.pickle"):
+            with open("Dati/Utilizzatori.picke", "rb") as f:
+                credenziali= dict(pickle.load(f))
+                try:
+                    return credenziali[id][password]
+                except:
+                    return None
+        else:
+            return None
+
 
 
 

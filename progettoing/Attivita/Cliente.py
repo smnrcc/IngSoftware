@@ -64,10 +64,11 @@ class Dipendente(Utilzzatore):
 
     def rimuoviCliente(self):
         if os.path.isfile("Dati/Clienti.pickle"):
-            with open("Dati/Clienti.pickle", "wb+") as f:
+            with open("Dati/Clienti.pickle", "rb") as f:
                 clienti= pickle.load(f)
                 del clienti[self.codice]
-                pickle.dump(clienti, f , pickle.HIGHEST_PROTOCOL)
+            with open("Dati/Clienti.pickle", "wb") as f:
+             pickle.dump(clienti, f , pickle.HIGHEST_PROTOCOL)
         self.rimuoviUtilizzatore()
         self.noleggio = []
         self.note = ""
