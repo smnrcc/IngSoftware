@@ -10,4 +10,13 @@ class Contratto:
         self.dataScadenza= datetime.datetime(1970,1,1,0,0)
         self.assicurazione=False
 
+    def aggiungiContratto(self, dataRilascio, prezzoIngresso, prezzoUscita, tipoVeicolo, accessori, codice, dataScadenza, assicurazione):
+        self.dataRilascio=dataRilascio
+        self.prezzoUscita=prezzoUscita
+        self.prezzoIngresso=prezzoIngresso
+        self.tipoVeicolo=tipoVeicolo
+        self.accessori=accessori
+        self.codice=codice
+        self.dataScadenza=dataScadenza
+        self.assicurazione=assicurazione
 
